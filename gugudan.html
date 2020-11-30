@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>gugudan</title>
+  </head>
+  <body>
+    <div id="root">
+      <form v-on:submit="onClick">
+        <div>{{first}}곱하기 {{second}}는?</div>
+        <input ref="answer" type="text" v-model="value" />
+        <input type="submit" />
+        <div>{{result}}</div>
+      </form>
+    </div>
+    <script>
+      const app = new Vue({
+        el: "#root",
+        data: {
+          first: Math.ceil(Math.random() * 9),
+          second: Math.ceil(Math.random() * 9),
+          value: "",
+          result: "",
+        },
+        methods: {
+          onClick(e) {
+            e.preventDefault();
+            if (this.first * this.second === +this.value) {
+              this.result = "정답";
+              this.first = Math.ceil(Math.random() * 9);
+              this.second = Math.ceil(Math.random() * 9);
+              this.value = "";
+              this.$refs.answer.focus();
+            } else {
+              this.result = "땡!";
+              this.value = "";
+              this.$refs.answer.focus();
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
