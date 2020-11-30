@@ -8,20 +8,22 @@
   </head>
   <body>
     <div id="root">
-      <form v-on:submit="onClick">
-        <div>{{word}}</div>
-        <input type="text" v-model="value" ref="answer" />
-        <button type="submit">입력</button>
-        <div>{{result}}</div>
-      </form>
+      <word-relay />
     </div>
     <script>
-      const app = new Vue({
-        el: "#root",
-        data: {
-          word: "우유",
-          value: "",
-          result: "",
+      Vue.component("word-relay", {
+        template: `
+        <div>
+            <form v-on:submit="onClick">
+            <div>{{word}}</div>
+                <input type="text" v-model="value" ref="answer" />
+                <button type="submit">입력</button>
+            <div>{{result}}</div>
+            </form>
+        </div>
+            `,
+        data() {
+          return { word: "우유", value: "", result: "" };
         },
         methods: {
           onClick(e) {
@@ -38,6 +40,11 @@
             }
           },
         },
+      });
+    </script>
+    <script>
+      const app = new Vue({
+        el: "#root",
       });
     </script>
   </body>
