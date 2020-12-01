@@ -5,6 +5,9 @@
   "repository": "https://github.com/MSeoJun/Vue_Learning.git",
   "author": "MSeoJun <mun3582w@naver.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "webpack"
+  },
   "dependencies": {
     "vue": "2.6.12"
   },

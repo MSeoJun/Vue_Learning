@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   entry: {
     app: "./main.js",
@@ -8,6 +10,6 @@ module.exports = {
   plugins: [],
   output: {
     filename: "[name].js",
-    path: "./dist",
+    path: path.join(__dirname, "dist"),
   },
 };
