@@ -11,6 +11,7 @@
       <word-relay />
     </div>
     <script>
+      // 컴포넌트 만들어서 적용
       Vue.component("word-relay", {
         template: `
         <div>
@@ -29,11 +30,13 @@
           onClick(e) {
             e.preventDefault();
             if (this.word[this.word.length - 1] === this.value[0]) {
+              // 정답처리
               this.result = "정답";
               this.word = this.value;
               this.value = "";
               this.$refs.answer.focus();
             } else {
+              // 오답처리
               this.result = "땡!";
               this.value = "";
               this.$refs.answer.focus();
